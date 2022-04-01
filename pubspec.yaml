@@ -1,5 +1,5 @@
 name: carrot_clone
-description: A new Flutter project.
+description: 당근마켓 클론 코딩
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -11,6 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  flutter_bloc: ^8.0.1
+  freezed_annotation: ^1.1.0
 
 
   cupertino_icons: ^1.0.2
@@ -18,6 +21,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  freezed: ^1.1.1
+  build_runner:
+  flutter_native_splash: ^2.1.1
 
   flutter_lints: ^1.0.0
 
