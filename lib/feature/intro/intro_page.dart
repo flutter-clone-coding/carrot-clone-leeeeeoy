@@ -1,3 +1,4 @@
+import 'package:carrot_clone/feature/intro/input_phone_number_page.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -58,11 +59,12 @@ class IntroPage extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 48, top: 24),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text('이미 계정이 있나요?'),
-                SizedBox(width: 8),
+              children: [
+                const Text('이미 계정이 있나요?'),
+                const SizedBox(width: 8),
                 InkWell(
-                  child: Text(
+                  onTap: () => Navigator.pushNamed(context, InputPhoneNumberPage.routeName),
+                  child: const Text(
                     '로그인',
                     style: TextStyle(
                       color: Colors.orange,
