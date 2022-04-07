@@ -1,5 +1,6 @@
 import 'package:carrot_clone/feature/intro/input_phone_number_page.dart';
 import 'package:carrot_clone/feature/intro/intro_page.dart';
+import 'package:carrot_clone/feature/main/main_page.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppRoute {
@@ -12,6 +13,9 @@ abstract class AppRoute {
         break;
       case InputPhoneNumberPage.routeName:
         _page = const InputPhoneNumberPage();
+        break;
+      case MainPage.routeName:
+        _page = const MainPage();
         break;
     }
 

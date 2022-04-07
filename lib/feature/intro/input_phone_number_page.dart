@@ -1,6 +1,8 @@
 import 'package:carrot_clone/feature/intro/bloc/login_code_bloc.dart';
 import 'package:carrot_clone/feature/intro/bloc/login_phone_number_bloc.dart';
+import 'package:carrot_clone/feature/main/main_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InputPhoneNumberPage extends StatelessWidget {
@@ -112,9 +114,13 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
                 child: TextFormField(
                   controller: _phoneNumberController,
                   onChanged: (value) => context.read<LoginPhoneNumberBloc>().add(LoginPhoneNumberEvent.changed(value)),
+                  maxLength: 11,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: '휴대폰 번호 (- 없이 숫자만 입력)',
+                    counterText: '',
                   ),
                 ),
               ),
@@ -195,10 +201,14 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
                       ),
                       child: TextFormField(
                         controller: _codeController,
+                        maxLength: 6,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         onChanged: (value) => context.read<LoginCodeBloc>().add(LoginCodeEvent.changed(value)),
                         decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: '인증번호 입력',
+                          counterText: '',
                         ),
                       ),
                     ),
@@ -245,7 +255,13 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
                               foregroundColor: MaterialStateProperty.all(Colors.white),
                               elevation: MaterialStateProperty.all(0),
                             ),
-                            onPressed: _isValid ? () {} : null,
+                            onPressed: _isValid
+                                ? () => Navigator.pushNamedAndRemoveUntil(
+                                      context,
+                                      MainPage.routeName,
+                                      (route) => false,
+                                    )
+                                : null,
                             child: const Text(
                               '인증번호 확인',
                               style: TextStyle(
