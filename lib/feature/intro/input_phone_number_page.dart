@@ -42,11 +42,7 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
         elevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-            size: 30,
-          ),
+          icon: const Icon(Icons.arrow_back, color: Colors.black, size: 30),
         ),
       ),
       backgroundColor: Colors.white,
@@ -62,10 +58,7 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
                     succeed: () => const SizedBox(),
                     orElse: () => const Text(
                       '안녕하세요!\n휴대폰 번호로 로그인해주세요.',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   );
                 },
