@@ -38,8 +38,6 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back, color: Colors.black, size: 30),
@@ -111,7 +109,6 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
                   keyboardType: TextInputType.number,
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   decoration: const InputDecoration(
-                    border: InputBorder.none,
                     hintText: '휴대폰 번호 (- 없이 숫자만 입력)',
                     counterText: '',
                   ),
@@ -159,20 +156,12 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
                                   return Colors.grey;
                                 }
                               }),
-                              foregroundColor: MaterialStateProperty.all(Colors.white),
-                              elevation: MaterialStateProperty.all(0),
                             ),
                             onPressed: _isValid
                                 ? () =>
                                     context.read<LoginPhoneNumberBloc>().add(const LoginPhoneNumberEvent.submitted())
                                 : null,
-                            child: const Text(
-                              '인증문자 받기',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                            child: const Text('인증문자 받기'),
                           );
                         },
                       ),
@@ -199,7 +188,6 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
                         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         onChanged: (value) => context.read<LoginCodeBloc>().add(LoginCodeEvent.changed(value)),
                         decoration: const InputDecoration(
-                          border: InputBorder.none,
                           hintText: '인증번호 입력',
                           counterText: '',
                         ),
@@ -237,17 +225,6 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
                             orElse: () => _isValid,
                           );
                           return ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.resolveWith((states) {
-                                if (states.contains(MaterialState.disabled)) {
-                                  return Colors.grey[300];
-                                } else {
-                                  return Colors.orange;
-                                }
-                              }),
-                              foregroundColor: MaterialStateProperty.all(Colors.white),
-                              elevation: MaterialStateProperty.all(0),
-                            ),
                             onPressed: _isValid
                                 ? () => Navigator.pushNamedAndRemoveUntil(
                                       context,
@@ -255,13 +232,7 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
                                       (route) => false,
                                     )
                                 : null,
-                            child: const Text(
-                              '인증번호 확인',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                            child: const Text('인증번호 확인'),
                           );
                         },
                       ),

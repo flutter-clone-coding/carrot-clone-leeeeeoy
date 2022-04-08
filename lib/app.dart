@@ -1,5 +1,5 @@
 import 'package:carrot_clone/app_route.dart';
-import 'package:carrot_clone/feature/intro/intro_page.dart';
+import 'package:carrot_clone/feature/main/main_page.dart';
 import 'package:carrot_clone/resource/resource.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class App extends StatelessWidget {
         child: child!,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: IntroPage.routeName,
+      initialRoute: MainPage.routeName,
       theme: AppTheme.light,
       onGenerateRoute: AppRoute.onGenerateRoute,
     );

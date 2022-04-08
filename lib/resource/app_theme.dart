@@ -6,6 +6,9 @@ abstract class AppTheme {
       backgroundColor: AppColor.white,
       elevation: 0,
       toolbarHeight: 56,
+      centerTitle: false,
+      titleSpacing: 0,
+      foregroundColor: AppColor.black,
       shape: Border(
         bottom: BorderSide(
           color: AppColor.lightGrey,
@@ -13,7 +16,10 @@ abstract class AppTheme {
         ),
       ),
     ),
-    scaffoldBackgroundColor: AppColor.white,
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: AppColor.primary,
+      foregroundColor: AppColor.white,
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.resolveWith((states) {
@@ -32,6 +38,12 @@ abstract class AppTheme {
           ),
         ),
       ),
+    ),
+    inputDecorationTheme: const InputDecorationTheme(
+      border: InputBorder.none,
+    ),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppColor.black,
     ),
   );
 
