@@ -61,16 +61,67 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width - 156,
+                  Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          '상품제목이 길면 이렇게 됩니다.' * (index % 3 + 1),
-                          style: const TextStyle(fontSize: 16),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Flexible(
+                              child: Text(
+                                '제목이 들어갑니다 ' * (index % 4 + 1),
+                                style: const TextStyle(fontSize: 16),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            index % 3 == 0
+                                ? Padding(
+                                    padding: const EdgeInsets.only(left: 16),
+                                    child: InkWell(
+                                      onTap: () {
+                                        showCupertinoModalPopup(
+                                          context: context,
+                                          builder: (_) => CupertinoActionSheet(
+                                            cancelButton: CupertinoActionSheetAction(
+                                              child: const Text(
+                                                '취소',
+                                                style: TextStyle(
+                                                  color: AppColor.blue,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              onPressed: () => Navigator.pop(context),
+                                            ),
+                                            actions: [
+                                              CupertinoActionSheetAction(
+                                                child: const Text(
+                                                  '이 광고 그만보기',
+                                                  style: TextStyle(color: AppColor.blue),
+                                                ),
+                                                onPressed: () => Navigator.pop(context),
+                                              ),
+                                              CupertinoActionSheetAction(
+                                                child: const Text(
+                                                  '신고하기',
+                                                  style: TextStyle(color: AppColor.red),
+                                                ),
+                                                onPressed: () => Navigator.pop(context),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                      child: const Icon(
+                                        Icons.more_vert,
+                                        size: 16,
+                                      ),
+                                    ),
+                                  )
+                                : const SizedBox(),
+                          ],
                         ),
                         const SizedBox(height: 4),
                         Text(

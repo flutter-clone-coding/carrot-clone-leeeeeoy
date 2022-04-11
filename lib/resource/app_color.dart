@@ -8,4 +8,7 @@ abstract class AppColor {
   static const grey = Colors.grey;
 
   static const primary = Color(0xfff7863a);
+
+  static const red = Colors.red;
+  static const blue = Colors.blue;
 }
