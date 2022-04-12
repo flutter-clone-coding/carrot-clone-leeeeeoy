@@ -62,6 +62,7 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
                 },
               ),
               BlocBuilder<LoginPhoneNumberBloc, LoginPhoneNumberState>(
+                buildWhen: (previous, current) => current is LoginPhoneNumberSucceed,
                 builder: (context, state) {
                   return SizedBox(
                     height: state.maybeWhen(
@@ -85,6 +86,7 @@ class _InputPhoneNumberScreenState extends State<_InputPhoneNumberScreen> {
                 },
               ),
               BlocBuilder<LoginPhoneNumberBloc, LoginPhoneNumberState>(
+                buildWhen: (pre, next) => next is LoginPhoneNumberSucceed,
                 builder: (context, state) {
                   return SizedBox(
                     height: state.maybeWhen(

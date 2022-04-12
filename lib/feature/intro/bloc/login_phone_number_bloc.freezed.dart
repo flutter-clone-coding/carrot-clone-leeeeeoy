@@ -65,13 +65,6 @@ mixin _$LoginPhoneNumberEvent {
     TResult Function(_Submitted value)? submitted,
   }) =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Changed value)? changed,
-    TResult Function(_Submitted value)? submitted,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -200,19 +193,6 @@ class _$_Changed implements _Changed {
   }) {
     return changed?.call(this);
   }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Changed value)? changed,
-    TResult Function(_Submitted value)? submitted,
-    required TResult orElse(),
-  }) {
-    if (changed != null) {
-      return changed(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class _Changed implements LoginPhoneNumberEvent {
@@ -309,19 +289,6 @@ class _$_Submitted implements _Submitted {
   }) {
     return submitted?.call(this);
   }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Changed value)? changed,
-    TResult Function(_Submitted value)? submitted,
-    required TResult orElse(),
-  }) {
-    if (submitted != null) {
-      return submitted(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class _Submitted implements LoginPhoneNumberEvent {
@@ -332,26 +299,26 @@ abstract class _Submitted implements LoginPhoneNumberEvent {
 class _$LoginPhoneNumberStateTearOff {
   const _$LoginPhoneNumberStateTearOff();
 
-  _Initial initial() {
-    return const _Initial();
+  LoginPhoneNumberInitial initial() {
+    return const LoginPhoneNumberInitial();
   }
 
-  _ValidationChecked validationChecked(bool isValid) {
-    return _ValidationChecked(
+  LoginPhoneNumberValidationChecked validationChecked(bool isValid) {
+    return LoginPhoneNumberValidationChecked(
       isValid,
     );
   }
 
-  _Loading loading() {
-    return const _Loading();
+  LoginPhoneNumberLoading loading() {
+    return const LoginPhoneNumberLoading();
   }
 
-  _Succeed succeed() {
-    return const _Succeed();
+  LoginPhoneNumberSucceed succeed() {
+    return const LoginPhoneNumberSucceed();
   }
 
-  _Error error() {
-    return const _Error();
+  LoginPhoneNumberError error() {
+    return const LoginPhoneNumberError();
   }
 }
 
@@ -390,30 +357,22 @@ mixin _$LoginPhoneNumberState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_ValidationChecked value) validationChecked,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_Error value) error,
+    required TResult Function(LoginPhoneNumberInitial value) initial,
+    required TResult Function(LoginPhoneNumberValidationChecked value)
+        validationChecked,
+    required TResult Function(LoginPhoneNumberLoading value) loading,
+    required TResult Function(LoginPhoneNumberSucceed value) succeed,
+    required TResult Function(LoginPhoneNumberError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ValidationChecked value)? validationChecked,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_Error value)? error,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ValidationChecked value)? validationChecked,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
+    TResult Function(LoginPhoneNumberInitial value)? initial,
+    TResult Function(LoginPhoneNumberValidationChecked value)?
+        validationChecked,
+    TResult Function(LoginPhoneNumberLoading value)? loading,
+    TResult Function(LoginPhoneNumberSucceed value)? succeed,
+    TResult Function(LoginPhoneNumberError value)? error,
   }) =>
       throw _privateConstructorUsedError;
 }
@@ -436,26 +395,28 @@ class _$LoginPhoneNumberStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class $LoginPhoneNumberInitialCopyWith<$Res> {
+  factory $LoginPhoneNumberInitialCopyWith(LoginPhoneNumberInitial value,
+          $Res Function(LoginPhoneNumberInitial) then) =
+      _$LoginPhoneNumberInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res>
+class _$LoginPhoneNumberInitialCopyWithImpl<$Res>
     extends _$LoginPhoneNumberStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
+    implements $LoginPhoneNumberInitialCopyWith<$Res> {
+  _$LoginPhoneNumberInitialCopyWithImpl(LoginPhoneNumberInitial _value,
+      $Res Function(LoginPhoneNumberInitial) _then)
+      : super(_value, (v) => _then(v as LoginPhoneNumberInitial));
 
   @override
-  _Initial get _value => super._value as _Initial;
+  LoginPhoneNumberInitial get _value => super._value as LoginPhoneNumberInitial;
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$LoginPhoneNumberInitial implements LoginPhoneNumberInitial {
+  const _$LoginPhoneNumberInitial();
 
   @override
   String toString() {
@@ -465,7 +426,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType && other is LoginPhoneNumberInitial);
   }
 
   @override
@@ -514,11 +475,12 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_ValidationChecked value) validationChecked,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_Error value) error,
+    required TResult Function(LoginPhoneNumberInitial value) initial,
+    required TResult Function(LoginPhoneNumberValidationChecked value)
+        validationChecked,
+    required TResult Function(LoginPhoneNumberLoading value) loading,
+    required TResult Function(LoginPhoneNumberSucceed value) succeed,
+    required TResult Function(LoginPhoneNumberError value) error,
   }) {
     return initial(this);
   }
@@ -526,60 +488,48 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ValidationChecked value)? validationChecked,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_Error value)? error,
+    TResult Function(LoginPhoneNumberInitial value)? initial,
+    TResult Function(LoginPhoneNumberValidationChecked value)?
+        validationChecked,
+    TResult Function(LoginPhoneNumberLoading value)? loading,
+    TResult Function(LoginPhoneNumberSucceed value)? succeed,
+    TResult Function(LoginPhoneNumberError value)? error,
   }) {
     return initial?.call(this);
   }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ValidationChecked value)? validationChecked,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class _Initial implements LoginPhoneNumberState {
-  const factory _Initial() = _$_Initial;
+abstract class LoginPhoneNumberInitial implements LoginPhoneNumberState {
+  const factory LoginPhoneNumberInitial() = _$LoginPhoneNumberInitial;
 }
 
 /// @nodoc
-abstract class _$ValidationCheckedCopyWith<$Res> {
-  factory _$ValidationCheckedCopyWith(
-          _ValidationChecked value, $Res Function(_ValidationChecked) then) =
-      __$ValidationCheckedCopyWithImpl<$Res>;
+abstract class $LoginPhoneNumberValidationCheckedCopyWith<$Res> {
+  factory $LoginPhoneNumberValidationCheckedCopyWith(
+          LoginPhoneNumberValidationChecked value,
+          $Res Function(LoginPhoneNumberValidationChecked) then) =
+      _$LoginPhoneNumberValidationCheckedCopyWithImpl<$Res>;
   $Res call({bool isValid});
 }
 
 /// @nodoc
-class __$ValidationCheckedCopyWithImpl<$Res>
+class _$LoginPhoneNumberValidationCheckedCopyWithImpl<$Res>
     extends _$LoginPhoneNumberStateCopyWithImpl<$Res>
-    implements _$ValidationCheckedCopyWith<$Res> {
-  __$ValidationCheckedCopyWithImpl(
-      _ValidationChecked _value, $Res Function(_ValidationChecked) _then)
-      : super(_value, (v) => _then(v as _ValidationChecked));
+    implements $LoginPhoneNumberValidationCheckedCopyWith<$Res> {
+  _$LoginPhoneNumberValidationCheckedCopyWithImpl(
+      LoginPhoneNumberValidationChecked _value,
+      $Res Function(LoginPhoneNumberValidationChecked) _then)
+      : super(_value, (v) => _then(v as LoginPhoneNumberValidationChecked));
 
   @override
-  _ValidationChecked get _value => super._value as _ValidationChecked;
+  LoginPhoneNumberValidationChecked get _value =>
+      super._value as LoginPhoneNumberValidationChecked;
 
   @override
   $Res call({
     Object? isValid = freezed,
   }) {
-    return _then(_ValidationChecked(
+    return _then(LoginPhoneNumberValidationChecked(
       isValid == freezed
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
@@ -590,8 +540,9 @@ class __$ValidationCheckedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ValidationChecked implements _ValidationChecked {
-  const _$_ValidationChecked(this.isValid);
+class _$LoginPhoneNumberValidationChecked
+    implements LoginPhoneNumberValidationChecked {
+  const _$LoginPhoneNumberValidationChecked(this.isValid);
 
   @override
   final bool isValid;
@@ -605,7 +556,7 @@ class _$_ValidationChecked implements _ValidationChecked {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ValidationChecked &&
+            other is LoginPhoneNumberValidationChecked &&
             const DeepCollectionEquality().equals(other.isValid, isValid));
   }
 
@@ -615,8 +566,9 @@ class _$_ValidationChecked implements _ValidationChecked {
 
   @JsonKey(ignore: true)
   @override
-  _$ValidationCheckedCopyWith<_ValidationChecked> get copyWith =>
-      __$ValidationCheckedCopyWithImpl<_ValidationChecked>(this, _$identity);
+  $LoginPhoneNumberValidationCheckedCopyWith<LoginPhoneNumberValidationChecked>
+      get copyWith => _$LoginPhoneNumberValidationCheckedCopyWithImpl<
+          LoginPhoneNumberValidationChecked>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -661,11 +613,12 @@ class _$_ValidationChecked implements _ValidationChecked {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_ValidationChecked value) validationChecked,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_Error value) error,
+    required TResult Function(LoginPhoneNumberInitial value) initial,
+    required TResult Function(LoginPhoneNumberValidationChecked value)
+        validationChecked,
+    required TResult Function(LoginPhoneNumberLoading value) loading,
+    required TResult Function(LoginPhoneNumberSucceed value) succeed,
+    required TResult Function(LoginPhoneNumberError value) error,
   }) {
     return validationChecked(this);
   }
@@ -673,62 +626,51 @@ class _$_ValidationChecked implements _ValidationChecked {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ValidationChecked value)? validationChecked,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_Error value)? error,
+    TResult Function(LoginPhoneNumberInitial value)? initial,
+    TResult Function(LoginPhoneNumberValidationChecked value)?
+        validationChecked,
+    TResult Function(LoginPhoneNumberLoading value)? loading,
+    TResult Function(LoginPhoneNumberSucceed value)? succeed,
+    TResult Function(LoginPhoneNumberError value)? error,
   }) {
     return validationChecked?.call(this);
   }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ValidationChecked value)? validationChecked,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (validationChecked != null) {
-      return validationChecked(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class _ValidationChecked implements LoginPhoneNumberState {
-  const factory _ValidationChecked(bool isValid) = _$_ValidationChecked;
+abstract class LoginPhoneNumberValidationChecked
+    implements LoginPhoneNumberState {
+  const factory LoginPhoneNumberValidationChecked(bool isValid) =
+      _$LoginPhoneNumberValidationChecked;
 
   bool get isValid;
   @JsonKey(ignore: true)
-  _$ValidationCheckedCopyWith<_ValidationChecked> get copyWith =>
-      throw _privateConstructorUsedError;
+  $LoginPhoneNumberValidationCheckedCopyWith<LoginPhoneNumberValidationChecked>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class $LoginPhoneNumberLoadingCopyWith<$Res> {
+  factory $LoginPhoneNumberLoadingCopyWith(LoginPhoneNumberLoading value,
+          $Res Function(LoginPhoneNumberLoading) then) =
+      _$LoginPhoneNumberLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res>
+class _$LoginPhoneNumberLoadingCopyWithImpl<$Res>
     extends _$LoginPhoneNumberStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
+    implements $LoginPhoneNumberLoadingCopyWith<$Res> {
+  _$LoginPhoneNumberLoadingCopyWithImpl(LoginPhoneNumberLoading _value,
+      $Res Function(LoginPhoneNumberLoading) _then)
+      : super(_value, (v) => _then(v as LoginPhoneNumberLoading));
 
   @override
-  _Loading get _value => super._value as _Loading;
+  LoginPhoneNumberLoading get _value => super._value as LoginPhoneNumberLoading;
 }
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading();
+class _$LoginPhoneNumberLoading implements LoginPhoneNumberLoading {
+  const _$LoginPhoneNumberLoading();
 
   @override
   String toString() {
@@ -738,7 +680,7 @@ class _$_Loading implements _Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Loading);
+        (other.runtimeType == runtimeType && other is LoginPhoneNumberLoading);
   }
 
   @override
@@ -787,11 +729,12 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_ValidationChecked value) validationChecked,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_Error value) error,
+    required TResult Function(LoginPhoneNumberInitial value) initial,
+    required TResult Function(LoginPhoneNumberValidationChecked value)
+        validationChecked,
+    required TResult Function(LoginPhoneNumberLoading value) loading,
+    required TResult Function(LoginPhoneNumberSucceed value) succeed,
+    required TResult Function(LoginPhoneNumberError value) error,
   }) {
     return loading(this);
   }
@@ -799,57 +742,44 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ValidationChecked value)? validationChecked,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_Error value)? error,
+    TResult Function(LoginPhoneNumberInitial value)? initial,
+    TResult Function(LoginPhoneNumberValidationChecked value)?
+        validationChecked,
+    TResult Function(LoginPhoneNumberLoading value)? loading,
+    TResult Function(LoginPhoneNumberSucceed value)? succeed,
+    TResult Function(LoginPhoneNumberError value)? error,
   }) {
     return loading?.call(this);
   }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ValidationChecked value)? validationChecked,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class _Loading implements LoginPhoneNumberState {
-  const factory _Loading() = _$_Loading;
+abstract class LoginPhoneNumberLoading implements LoginPhoneNumberState {
+  const factory LoginPhoneNumberLoading() = _$LoginPhoneNumberLoading;
 }
 
 /// @nodoc
-abstract class _$SucceedCopyWith<$Res> {
-  factory _$SucceedCopyWith(_Succeed value, $Res Function(_Succeed) then) =
-      __$SucceedCopyWithImpl<$Res>;
+abstract class $LoginPhoneNumberSucceedCopyWith<$Res> {
+  factory $LoginPhoneNumberSucceedCopyWith(LoginPhoneNumberSucceed value,
+          $Res Function(LoginPhoneNumberSucceed) then) =
+      _$LoginPhoneNumberSucceedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SucceedCopyWithImpl<$Res>
+class _$LoginPhoneNumberSucceedCopyWithImpl<$Res>
     extends _$LoginPhoneNumberStateCopyWithImpl<$Res>
-    implements _$SucceedCopyWith<$Res> {
-  __$SucceedCopyWithImpl(_Succeed _value, $Res Function(_Succeed) _then)
-      : super(_value, (v) => _then(v as _Succeed));
+    implements $LoginPhoneNumberSucceedCopyWith<$Res> {
+  _$LoginPhoneNumberSucceedCopyWithImpl(LoginPhoneNumberSucceed _value,
+      $Res Function(LoginPhoneNumberSucceed) _then)
+      : super(_value, (v) => _then(v as LoginPhoneNumberSucceed));
 
   @override
-  _Succeed get _value => super._value as _Succeed;
+  LoginPhoneNumberSucceed get _value => super._value as LoginPhoneNumberSucceed;
 }
 
 /// @nodoc
 
-class _$_Succeed implements _Succeed {
-  const _$_Succeed();
+class _$LoginPhoneNumberSucceed implements LoginPhoneNumberSucceed {
+  const _$LoginPhoneNumberSucceed();
 
   @override
   String toString() {
@@ -859,7 +789,7 @@ class _$_Succeed implements _Succeed {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Succeed);
+        (other.runtimeType == runtimeType && other is LoginPhoneNumberSucceed);
   }
 
   @override
@@ -908,11 +838,12 @@ class _$_Succeed implements _Succeed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_ValidationChecked value) validationChecked,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_Error value) error,
+    required TResult Function(LoginPhoneNumberInitial value) initial,
+    required TResult Function(LoginPhoneNumberValidationChecked value)
+        validationChecked,
+    required TResult Function(LoginPhoneNumberLoading value) loading,
+    required TResult Function(LoginPhoneNumberSucceed value) succeed,
+    required TResult Function(LoginPhoneNumberError value) error,
   }) {
     return succeed(this);
   }
@@ -920,57 +851,44 @@ class _$_Succeed implements _Succeed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ValidationChecked value)? validationChecked,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_Error value)? error,
+    TResult Function(LoginPhoneNumberInitial value)? initial,
+    TResult Function(LoginPhoneNumberValidationChecked value)?
+        validationChecked,
+    TResult Function(LoginPhoneNumberLoading value)? loading,
+    TResult Function(LoginPhoneNumberSucceed value)? succeed,
+    TResult Function(LoginPhoneNumberError value)? error,
   }) {
     return succeed?.call(this);
   }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ValidationChecked value)? validationChecked,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (succeed != null) {
-      return succeed(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class _Succeed implements LoginPhoneNumberState {
-  const factory _Succeed() = _$_Succeed;
+abstract class LoginPhoneNumberSucceed implements LoginPhoneNumberState {
+  const factory LoginPhoneNumberSucceed() = _$LoginPhoneNumberSucceed;
 }
 
 /// @nodoc
-abstract class _$ErrorCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
-      __$ErrorCopyWithImpl<$Res>;
+abstract class $LoginPhoneNumberErrorCopyWith<$Res> {
+  factory $LoginPhoneNumberErrorCopyWith(LoginPhoneNumberError value,
+          $Res Function(LoginPhoneNumberError) then) =
+      _$LoginPhoneNumberErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res>
+class _$LoginPhoneNumberErrorCopyWithImpl<$Res>
     extends _$LoginPhoneNumberStateCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
-      : super(_value, (v) => _then(v as _Error));
+    implements $LoginPhoneNumberErrorCopyWith<$Res> {
+  _$LoginPhoneNumberErrorCopyWithImpl(
+      LoginPhoneNumberError _value, $Res Function(LoginPhoneNumberError) _then)
+      : super(_value, (v) => _then(v as LoginPhoneNumberError));
 
   @override
-  _Error get _value => super._value as _Error;
+  LoginPhoneNumberError get _value => super._value as LoginPhoneNumberError;
 }
 
 /// @nodoc
 
-class _$_Error implements _Error {
-  const _$_Error();
+class _$LoginPhoneNumberError implements LoginPhoneNumberError {
+  const _$LoginPhoneNumberError();
 
   @override
   String toString() {
@@ -980,7 +898,7 @@ class _$_Error implements _Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Error);
+        (other.runtimeType == runtimeType && other is LoginPhoneNumberError);
   }
 
   @override
@@ -1029,11 +947,12 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_ValidationChecked value) validationChecked,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Succeed value) succeed,
-    required TResult Function(_Error value) error,
+    required TResult Function(LoginPhoneNumberInitial value) initial,
+    required TResult Function(LoginPhoneNumberValidationChecked value)
+        validationChecked,
+    required TResult Function(LoginPhoneNumberLoading value) loading,
+    required TResult Function(LoginPhoneNumberSucceed value) succeed,
+    required TResult Function(LoginPhoneNumberError value) error,
   }) {
     return error(this);
   }
@@ -1041,32 +960,17 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ValidationChecked value)? validationChecked,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_Error value)? error,
+    TResult Function(LoginPhoneNumberInitial value)? initial,
+    TResult Function(LoginPhoneNumberValidationChecked value)?
+        validationChecked,
+    TResult Function(LoginPhoneNumberLoading value)? loading,
+    TResult Function(LoginPhoneNumberSucceed value)? succeed,
+    TResult Function(LoginPhoneNumberError value)? error,
   }) {
     return error?.call(this);
   }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_ValidationChecked value)? validationChecked,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Succeed value)? succeed,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (error != null) {
-      return error(this);
-    }
-    return orElse();
-  }
 }
 
-abstract class _Error implements LoginPhoneNumberState {
-  const factory _Error() = _$_Error;
+abstract class LoginPhoneNumberError implements LoginPhoneNumberState {
+  const factory LoginPhoneNumberError() = _$LoginPhoneNumberError;
 }

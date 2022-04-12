@@ -8,7 +8,7 @@ part 'login_phone_number_state.dart';
 part 'login_phone_number_bloc.freezed.dart';
 
 class LoginPhoneNumberBloc extends Bloc<LoginPhoneNumberEvent, LoginPhoneNumberState> {
-  LoginPhoneNumberBloc() : super(const _Initial()) {
+  LoginPhoneNumberBloc() : super(const LoginPhoneNumberInitial()) {
     on<_Changed>(onChanged);
     on<_Submitted>(_onSubmitted);
   }

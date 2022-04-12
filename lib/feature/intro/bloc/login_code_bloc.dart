@@ -8,7 +8,7 @@ part 'login_code_state.dart';
 part 'login_code_bloc.freezed.dart';
 
 class LoginCodeBloc extends Bloc<LoginCodeEvent, LoginCodeState> {
-  LoginCodeBloc() : super(const _Initial()) {
+  LoginCodeBloc() : super(const LoginCodeInitial()) {
     on<_Changed>(_onChanged);
     on<_Submitted>(_onSubmitted);
   }

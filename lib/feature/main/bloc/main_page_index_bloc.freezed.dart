@@ -58,12 +58,6 @@ mixin _$MainPageIndexEvent {
     TResult Function(_PageChanged value)? pageChanged,
   }) =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PageChanged value)? pageChanged,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MainPageIndexEventCopyWith<MainPageIndexEvent> get copyWith =>
@@ -206,18 +200,6 @@ class _$_PageChanged implements _PageChanged {
     TResult Function(_PageChanged value)? pageChanged,
   }) {
     return pageChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PageChanged value)? pageChanged,
-    required TResult orElse(),
-  }) {
-    if (pageChanged != null) {
-      return pageChanged(this);
-    }
-    return orElse();
   }
 }
 
