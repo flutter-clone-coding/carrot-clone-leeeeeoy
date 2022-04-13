@@ -1,14 +1,17 @@
 import 'dart:math';
 
 import 'package:carrot_clone/app_const.dart';
+import 'package:carrot_clone/feature/main/home/widget/home_bottom_sheet.dart';
+import 'package:carrot_clone/feature/main/home/widget/home_floating_button_dropdown.dart';
 import 'package:carrot_clone/feature/main/main_bottom_navigation_bar.dart';
 import 'package:carrot_clone/resource/resource.dart';
 import 'package:carrot_clone/util/calculate_offset.dart';
-import 'package:carrot_clone/widget/custom_dropdown_list.dart';
+import 'package:carrot_clone/feature/main/home/widget/home_app_bar_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-final _dropdownKey = GlobalKey();
+final _appBarDropdownKey = GlobalKey();
+final _floatingButtonDropdownKey = GlobalKey();
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,10 +20,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const MainBottomNavigationBar(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(CupertinoIcons.add),
-      ),
+      floatingActionButton: const _HomeFloatingButton(),
       appBar: AppBar(
         title: const _HomeAppBarTitle(),
         actions: const [
@@ -84,34 +84,7 @@ class HomePage extends StatelessWidget {
                                       onTap: () {
                                         showCupertinoModalPopup(
                                           context: context,
-                                          builder: (_) => CupertinoActionSheet(
-                                            cancelButton: CupertinoActionSheetAction(
-                                              child: const Text(
-                                                '취소',
-                                                style: TextStyle(
-                                                  color: AppColor.blue,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                              onPressed: () => Navigator.pop(context),
-                                            ),
-                                            actions: [
-                                              CupertinoActionSheetAction(
-                                                child: const Text(
-                                                  '이 광고 그만보기',
-                                                  style: TextStyle(color: AppColor.blue),
-                                                ),
-                                                onPressed: () => Navigator.pop(context),
-                                              ),
-                                              CupertinoActionSheetAction(
-                                                child: const Text(
-                                                  '신고하기',
-                                                  style: TextStyle(color: AppColor.red),
-                                                ),
-                                                onPressed: () => Navigator.pop(context),
-                                              ),
-                                            ],
-                                          ),
+                                          builder: (_) => const HomeBottomSheet(),
                                         );
                                       },
                                       child: const Icon(
@@ -185,7 +158,7 @@ class __HomeAppBarTitleState extends State<_HomeAppBarTitle> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      key: _dropdownKey,
+      key: _appBarDropdownKey,
       children: [
         const Padding(
           padding: EdgeInsets.only(left: 16, right: 4),
@@ -201,8 +174,8 @@ class __HomeAppBarTitleState extends State<_HomeAppBarTitle> {
               context,
               PageRouteBuilder(
                 opaque: false,
-                pageBuilder: (context, animation, secondaryAnimation) => CustomDropDownList(
-                  offset: calculateOffset(_dropdownKey),
+                pageBuilder: (context, animation, secondaryAnimation) => HomeAppBarDropdown(
+                  offset: calculateOffset(_appBarDropdownKey),
                 ),
                 transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
                   opacity: animation,
@@ -222,6 +195,40 @@ class __HomeAppBarTitleState extends State<_HomeAppBarTitle> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _HomeFloatingButton extends StatefulWidget {
+  const _HomeFloatingButton({Key? key}) : super(key: key);
+
+  @override
+  State<_HomeFloatingButton> createState() => __HomeFloatingButtonState();
+}
+
+class __HomeFloatingButtonState extends State<_HomeFloatingButton> {
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          PageRouteBuilder(
+            opaque: false,
+            pageBuilder: (context, animation, secondaryAnimation) => HomeFloatingButtonDropdown(
+              offset: calculateOffset(_floatingButtonDropdownKey),
+            ),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+              opacity: animation,
+              child: child,
+            ),
+          ),
+        );
+      },
+      child: Icon(
+        CupertinoIcons.add,
+        key: _floatingButtonDropdownKey,
+      ),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:carrot_clone/app_route.dart';
-import 'package:carrot_clone/feature/intro/input_phone_number_page.dart';
+import 'package:carrot_clone/feature/main/main_page.dart';
 import 'package:carrot_clone/resource/resource.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +14,7 @@ class App extends StatelessWidget {
         child: child!,
       ),
       debugShowCheckedModeBanner: false,
-      // initialRoute: MainPage.routeName,
-      initialRoute: InputPhoneNumberPage.routeName,
+      initialRoute: MainPage.routeName,
       theme: AppTheme.light,
       onGenerateRoute: AppRoute.onGenerateRoute,
     );

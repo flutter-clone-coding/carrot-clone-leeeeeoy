@@ -1,8 +1,8 @@
 import 'package:carrot_clone/resource/resource.dart';
 import 'package:flutter/material.dart';
 
-class CustomDropDownList extends StatefulWidget {
-  const CustomDropDownList({
+class HomeAppBarDropdown extends StatefulWidget {
+  const HomeAppBarDropdown({
     Key? key,
     required this.offset,
   }) : super(key: key);
@@ -10,10 +10,10 @@ class CustomDropDownList extends StatefulWidget {
   final Offset offset;
 
   @override
-  State<CustomDropDownList> createState() => _CustomDropDownListState();
+  State<HomeAppBarDropdown> createState() => _HomeAppBarDropdownState();
 }
 
-class _CustomDropDownListState extends State<CustomDropDownList> with SingleTickerProviderStateMixin {
+class _HomeAppBarDropdownState extends State<HomeAppBarDropdown> with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 200),
@@ -64,7 +64,7 @@ class _CustomDropDownListState extends State<CustomDropDownList> with SingleTick
                       height: 6,
                       width: 12,
                       child: CustomPaint(
-                        painter: TrianglePainter(
+                        painter: _TrianglePainter(
                           strokeColor: AppColor.white,
                           paintingStyle: PaintingStyle.fill,
                         ),
@@ -114,12 +114,12 @@ class _CustomDropDownListState extends State<CustomDropDownList> with SingleTick
   }
 }
 
-class TrianglePainter extends CustomPainter {
+class _TrianglePainter extends CustomPainter {
   final Color strokeColor;
   final PaintingStyle paintingStyle;
   final double strokeWidth;
 
-  TrianglePainter({
+  _TrianglePainter({
     this.strokeColor = Colors.black,
     this.strokeWidth = 3,
     this.paintingStyle = PaintingStyle.stroke,
@@ -144,7 +144,7 @@ class TrianglePainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(TrianglePainter oldDelegate) {
+  bool shouldRepaint(_TrianglePainter oldDelegate) {
     return oldDelegate.strokeColor != strokeColor ||
         oldDelegate.paintingStyle != paintingStyle ||
         oldDelegate.strokeWidth != strokeWidth;
