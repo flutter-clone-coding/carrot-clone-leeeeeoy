@@ -14,12 +14,11 @@ class MainBottomNavigationBar extends StatelessWidget {
         height: 64,
         decoration: const BoxDecoration(
           border: Border(
-              top: BorderSide(
-            color: Colors.grey,
-            width: 0.5,
-          )),
-          boxShadow: [BoxShadow()],
-          color: Colors.white,
+            top: BorderSide(
+              color: Colors.grey,
+              width: 0.5,
+            ),
+          ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
