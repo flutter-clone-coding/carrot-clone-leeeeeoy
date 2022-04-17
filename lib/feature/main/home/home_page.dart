@@ -1,16 +1,15 @@
-import 'dart:math';
-
 import 'package:carrot_clone/app_const.dart';
 import 'package:carrot_clone/feature/main/home/widget/home_bottom_sheet.dart';
 import 'package:carrot_clone/feature/main/home/widget/home_floating_button_dropdown.dart';
 import 'package:carrot_clone/feature/main/main_bottom_navigation_bar.dart';
 import 'package:carrot_clone/resource/resource.dart';
 import 'package:carrot_clone/util/calculate_offset.dart';
-import 'package:carrot_clone/feature/main/home/widget/home_app_bar_dropdown.dart';
+import 'package:carrot_clone/widget/button/notification_button.dart';
+import 'package:carrot_clone/widget/button/search_button.dart';
+import 'package:carrot_clone/widget/title/dropdown_app_bar_title.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-final _appBarDropdownKey = GlobalKey();
 final _floatingButtonDropdownKey = GlobalKey();
 
 class HomePage extends StatelessWidget {
@@ -22,20 +21,14 @@ class HomePage extends StatelessWidget {
       bottomNavigationBar: const MainBottomNavigationBar(),
       floatingActionButton: const _HomeFloatingButton(),
       appBar: AppBar(
-        title: const _HomeAppBarTitle(),
+        title: const DropdownAppBarTitle(),
         actions: const [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 6),
-            child: Icon(CupertinoIcons.search),
-          ),
+          SearchButton(),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 6),
             child: Icon(CupertinoIcons.bars),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 6),
-            child: Icon(CupertinoIcons.bell),
-          ),
+          NotificationButton(),
           SizedBox(width: 10),
         ],
       ),
@@ -140,61 +133,6 @@ class HomePage extends StatelessWidget {
           itemCount: 100,
         ),
       ),
-    );
-  }
-}
-
-class _HomeAppBarTitle extends StatefulWidget {
-  const _HomeAppBarTitle({Key? key}) : super(key: key);
-
-  @override
-  State<_HomeAppBarTitle> createState() => __HomeAppBarTitleState();
-}
-
-class __HomeAppBarTitleState extends State<_HomeAppBarTitle> {
-  bool _isPush = false;
-  double _turns = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      key: _appBarDropdownKey,
-      children: [
-        const Padding(
-          padding: EdgeInsets.only(left: 16, right: 4),
-          child: Text('인헌동'),
-        ),
-        InkWell(
-          onTap: () async {
-            setState(() {
-              _turns += 1;
-              _isPush = true;
-            });
-            await Navigator.push(
-              context,
-              PageRouteBuilder(
-                opaque: false,
-                pageBuilder: (context, animation, secondaryAnimation) => HomeAppBarDropdown(
-                  offset: calculateOffset(_appBarDropdownKey),
-                ),
-                transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
-                  opacity: animation,
-                  child: child,
-                ),
-              ),
-            );
-            setState(() => _isPush = false);
-          },
-          child: AnimatedRotation(
-            turns: _isPush ? _turns - 0.5 : _turns,
-            duration: const Duration(milliseconds: 200),
-            child: Transform.rotate(
-              angle: pi * 3 / 2,
-              child: const Icon(CupertinoIcons.back, size: 16),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

@@ -1,19 +1,76 @@
+import 'dart:math';
+
 import 'package:carrot_clone/resource/resource.dart';
+import 'package:carrot_clone/util/calculate_offset.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeAppBarDropdown extends StatefulWidget {
-  const HomeAppBarDropdown({
-    Key? key,
-    required this.offset,
-  }) : super(key: key);
+class DropdownAppBarTitle extends StatefulWidget {
+  const DropdownAppBarTitle({Key? key}) : super(key: key);
+
+  @override
+  State<DropdownAppBarTitle> createState() => _DropdownAppBarTitleState();
+}
+
+class _DropdownAppBarTitleState extends State<DropdownAppBarTitle> {
+  bool _isPush = false;
+  double _turns = 0;
+  final _appBarDropdownKey = GlobalKey();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      key: _appBarDropdownKey,
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 16, right: 4),
+          child: Text('인헌동'),
+        ),
+        InkWell(
+          onTap: () async {
+            setState(() {
+              _turns += 1;
+              _isPush = true;
+            });
+            await Navigator.push(
+              context,
+              PageRouteBuilder(
+                opaque: false,
+                pageBuilder: (context, animation, secondaryAnimation) => _AppBarDropdown(
+                  calculateOffset(_appBarDropdownKey),
+                ),
+                transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+                  opacity: animation,
+                  child: child,
+                ),
+              ),
+            );
+            setState(() => _isPush = false);
+          },
+          child: AnimatedRotation(
+            turns: _isPush ? _turns - 0.5 : _turns,
+            duration: const Duration(milliseconds: 200),
+            child: Transform.rotate(
+              angle: pi * 3 / 2,
+              child: const Icon(CupertinoIcons.back, size: 16),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _AppBarDropdown extends StatefulWidget {
+  const _AppBarDropdown(this.offset, {Key? key}) : super(key: key);
 
   final Offset offset;
 
   @override
-  State<HomeAppBarDropdown> createState() => _HomeAppBarDropdownState();
+  State<_AppBarDropdown> createState() => __AppBarDropdownState();
 }
 
-class _HomeAppBarDropdownState extends State<HomeAppBarDropdown> with SingleTickerProviderStateMixin {
+class __AppBarDropdownState extends State<_AppBarDropdown> with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 200),
