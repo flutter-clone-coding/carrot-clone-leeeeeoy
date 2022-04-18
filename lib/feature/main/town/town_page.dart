@@ -15,7 +15,9 @@ class TownPage extends StatelessWidget {
       bottomNavigationBar: const MainBottomNavigationBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: const Text('Hello'),
+        child: const Icon(
+          CupertinoIcons.add,
+        ),
       ),
       appBar: AppBar(
         title: const DropdownAppBarTitle(),
@@ -50,7 +52,108 @@ class TownPage extends StatelessWidget {
               ),
             );
           }
-          return Text('$index');
+          return SizedBox(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: const EdgeInsets.all(16),
+                  height: 24,
+                  width: 56,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    color: AppColor.lightGrey,
+                  ),
+                  child: const Center(
+                    child: Text(
+                      '동네질문',
+                      style: TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ),
+                index % 2 == 0
+                    ? Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: RichText(
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          text: TextSpan(
+                            text: 'Q. ',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: AppColor.primary,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: '질문 내용입니다. ' * 10,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: AppColor.black,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+                    : Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: Text(
+                          '본문 내용입니다. ' * 20,
+                          style: const TextStyle(fontSize: 16),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 3,
+                        ),
+                      ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  child: Row(
+                    children: [
+                      const Text(
+                        'Nickname • 지역',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: AppColor.grey,
+                        ),
+                      ),
+                      const Spacer(),
+                      Text(
+                        '$index분 전',
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: AppColor.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(height: 1, color: AppColor.lightGrey),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        CupertinoIcons.check_mark_circled,
+                        color: AppColor.grey,
+                        size: 18,
+                      ),
+                      const SizedBox(width: 8),
+                      index % 2 == 0 ? Text('궁금해요 $index') : Text('공감해요 $index'),
+                      const SizedBox(width: 24),
+                      const Icon(
+                        CupertinoIcons.chat_bubble,
+                        color: AppColor.grey,
+                        size: 18,
+                      ),
+                      const SizedBox(width: 8),
+                      Text('답변 ${index * 2}'),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          );
         },
         separatorBuilder: (context, index) {
           if (index == 0) {
@@ -60,7 +163,10 @@ class TownPage extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 16),
             );
           }
-          return Container(height: 8, color: AppColor.grey);
+          return Container(
+            height: 8,
+            color: AppColor.lightGrey,
+          );
         },
         itemCount: 100,
       ),
