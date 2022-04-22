@@ -2,7 +2,7 @@ abstract class AppConst {
   static const animationDuration = Duration(milliseconds: 200);
 
   static const itemImages = [
-    'https://www.jungle.co.kr/image/b16094f44b48899c4c03f26d',
+    'https://kormedi.com/wp-content/uploads/2021/10/gettyimages-1347690485-580x374.jpg',
     'http://itimg.chosun.com/sitedata/image/202001/14/2020011400634_0.jpg',
     'http://www.earlyadopter.co.kr/wp-content/uploads/2020/11/late-2020-macbook-air-1024x900.jpg',
     'http://idreammall.net/web/product/big/201911/a10cb79add6af078861d356b0fa1290a.jpg',

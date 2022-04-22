@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 
 class HomeBottomSheet extends StatelessWidget {
   const HomeBottomSheet({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return CupertinoActionSheet(

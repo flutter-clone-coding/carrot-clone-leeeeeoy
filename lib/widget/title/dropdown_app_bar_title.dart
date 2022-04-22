@@ -36,10 +36,13 @@ class _DropdownAppBarTitleState extends State<DropdownAppBarTitle> {
               context,
               PageRouteBuilder(
                 opaque: false,
-                pageBuilder: (context, animation, secondaryAnimation) => _AppBarDropdown(
+                pageBuilder: (context, animation, secondaryAnimation) =>
+                    _AppBarDropdown(
                   calculateOffset(_appBarDropdownKey),
                 ),
-                transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) =>
+                        FadeTransition(
                   opacity: animation,
                   child: child,
                 ),
@@ -70,7 +73,8 @@ class _AppBarDropdown extends StatefulWidget {
   State<_AppBarDropdown> createState() => __AppBarDropdownState();
 }
 
-class __AppBarDropdownState extends State<_AppBarDropdown> with SingleTickerProviderStateMixin {
+class __AppBarDropdownState extends State<_AppBarDropdown>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 200),
@@ -159,7 +163,8 @@ class __AppBarDropdownState extends State<_AppBarDropdown> with SingleTickerProv
                               ),
                             ),
                         itemCount: _values.length,
-                        separatorBuilder: (context, index) => Container(color: AppColor.lightGrey, height: 1)),
+                        separatorBuilder: (context, index) =>
+                            Container(color: AppColor.lightGrey, height: 1)),
                   ),
                 ],
               ),

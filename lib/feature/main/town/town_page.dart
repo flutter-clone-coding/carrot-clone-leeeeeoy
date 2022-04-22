@@ -15,9 +15,7 @@ class TownPage extends StatelessWidget {
       bottomNavigationBar: const MainBottomNavigationBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: const Icon(
-          CupertinoIcons.add,
-        ),
+        child: const Icon(CupertinoIcons.add),
       ),
       appBar: AppBar(
         title: const DropdownAppBarTitle(),
@@ -107,7 +105,8 @@ class TownPage extends StatelessWidget {
                         ),
                       ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   child: Row(
                     children: [
                       const Text(
@@ -130,7 +129,8 @@ class TownPage extends StatelessWidget {
                 ),
                 Container(height: 1, color: AppColor.lightGrey),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   child: Row(
                     children: [
                       const Icon(
@@ -139,7 +139,9 @@ class TownPage extends StatelessWidget {
                         size: 18,
                       ),
                       const SizedBox(width: 8),
-                      index % 2 == 0 ? Text('궁금해요 $index') : Text('공감해요 $index'),
+                      index % 2 == 0
+                          ? Text('궁금해요 $index')
+                          : Text('공감해요 $index'),
                       const SizedBox(width: 24),
                       const Icon(
                         CupertinoIcons.chat_bubble,
