@@ -53,35 +53,12 @@ class ChatPage extends StatelessWidget {
               dismissThreshold: 0.5,
               onDismissed: () {},
               closeOnCancel: true,
-              confirmDismiss: () async {
-                return await showCupertinoDialog(
-                      context: context,
-                      builder: (_) => Dialog(
-                        child: SizedBox(
-                          height: 100,
-                          width: 100,
-                          child: Column(
-                            children: [
-                              Text('삭제하시겠습니까'),
-                              Row(
-                                children: [
-                                  ElevatedButton(
-                                    onPressed: () => Navigator.pop(context, true),
-                                    child: Text('삭제'),
-                                  ),
-                                  ElevatedButton(
-                                    onPressed: () => Navigator.pop(context),
-                                    child: Text('아니유'),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ) ??
-                    false;
-              },
+              confirmDismiss: () async =>
+                  await showCupertinoDialog(
+                    context: context,
+                    builder: (_) => const _ConfirmDialog(),
+                  ) ??
+                  false,
             ),
             children: [
               SlidableAction(
@@ -156,6 +133,50 @@ class ChatPage extends StatelessWidget {
         ),
         separatorBuilder: (context, index) => Container(height: 1, color: AppColor.lightGrey),
         itemCount: 100,
+      ),
+    );
+  }
+}
+
+class _ConfirmDialog extends StatelessWidget {
+  const _ConfirmDialog({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      child: SizedBox(
+        height: 200,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                '채팅방을 나면 채팅 목록 및 대화 내용이 삭제\n되고 복구할 수 없어요.\n채팅방에서 나가시겠어요?',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+              const Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () => Navigator.pop(context),
+                    style: ElevatedButton.styleFrom(
+                      primary: AppColor.grey,
+                    ),
+                    child: const Text('취소'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () => Navigator.pop(context, true),
+                    child: const Text('네, 나갈래요.'),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
